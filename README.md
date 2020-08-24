@@ -3,7 +3,8 @@
 ## 特别说明
 这是本人的 Mybatis 学习笔记，学习地址是 https://www.bilibili.com/video/av69586111
 
-## Day1
+# Day1
+## 搭建环境（建立 Github 项目）
 搭建环境（IDEA 2020.1.2 + MySQL 5.5.15 + Java 1.8 + Maven）
 ```$xslt
 <dependencies>
