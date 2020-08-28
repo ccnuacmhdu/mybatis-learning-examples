@@ -80,4 +80,4 @@ public class User {
     select * from user
 </select>
 ```
-# Day3 动态 SQL + 多表查询
+# Day3 多表查询
