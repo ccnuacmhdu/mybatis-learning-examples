@@ -26,7 +26,7 @@ public class MybatisPrimerTest {
 
         IUserDAO userDao = session.getMapper(IUserDAO.class);
 
-        List<User> users = userDao.findAll();
+        List<User> users = userDao.findAllUsers();
         for(User user : users) {
             System.out.println(user);
         }

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IUserDAO {
 //    @Select("select * from user")
-    List<User> findAll();
+    List<User> findAllUsers();
 
     User findById(Integer id);
 

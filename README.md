@@ -45,7 +45,7 @@ git pull --rebase origin master
 git push --set-upstream origin master 
 ```
 ## 入门示例
-- 配置文件方式见源码（User+IUserDAO+IUserDAO.xml+SqlMapConfig.xml）
+- 配置文件方式见源码（User+IUserDAO+IUserDAO.xml+SqlMapConfig.xml+MybatisPrimerTest.java）
 - 注解方式，去除 IUserDAO.xml，其他修改处见配置文件对应注释代码
 
 # Day2 单表 CRUD
