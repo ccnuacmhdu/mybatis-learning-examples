@@ -19,6 +19,19 @@ IDEA 建立 Maven 项目（IDEA 2020.1.2 + MySQL 5.5.15 + Java 1.8 + Maven 3.6.3
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.6</version>
         </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
     </dependencies>
 ```
 Github 创建项目 mybatis-learning-examples，建立本地和远程关联
