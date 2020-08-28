@@ -59,10 +59,24 @@ public class User {
     private String userAddress;
     ……  // 省略 setter/getter
 ```
-此种情况处理方式是，为从数据库中查询到的列起别名
+处理方式1
 ```$xslt
 <select id="findAll" resultType="com.example.domain.User">
     select id as userId,username as userName,birthday as userBirthday,
         sex as userSex,address as userAddress from user
+</select>
+```
+处理方式2
+```$xslt
+<resultMap id="userMap" type="com.example.domain.User">
+    <id column="id" property="userId"/>
+    <result column="username" property="userName"/>
+    <result column="sex" property="userSex"/>
+    <result column="address" property="userAddress"/>
+    <result column="birthday" property="userBirthday"/>
+</resultMap>
+
+<select id="findAll" resultMap="userMap">
+    select * from user
 </select>
 ```
