@@ -5,7 +5,7 @@
 
 # Day1
 ## 搭建环境（建立 Github 项目）
-搭建环境（IDEA 2020.1.2 + MySQL 5.5.15 + Java 1.8 + Maven）
+IDEA 建立 Maven 项目（IDEA 2020.1.2 + MySQL 5.5.15 + Java 1.8 + Maven 3.6.3）
 ```$xslt
 <dependencies>
         <dependency>
@@ -29,5 +29,8 @@ git add .
 git commit -m"init mybatis-learning-examples"
 git remote add origin git@github.com:ccnuacmhdu/mybatis-learning-examples.git
 git pull --rebase origin master
-git push --set-upstream origin master
+git push --set-upstream origin master 
 ```
+入门示例
+- 配置文件方式见源码（User+IUserDAO+IUserDAO.xml+SqlMapConfig.xml）
+- 注解方式，去除 IUserDAO.xml，其他修改处见配置文件对应注释代码
