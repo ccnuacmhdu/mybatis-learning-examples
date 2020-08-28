@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Mybatis 入门示例
  */
-public class MybatisTest {
+public class MybatisPrimerTest {
     public static void main(String[] args) throws IOException {
         InputStream in = Resources.getResourceAsStream("SqlMapConfig.xml");
 
@@ -26,7 +26,7 @@ public class MybatisTest {
 
         IUserDAO userDao = session.getMapper(IUserDAO.class);
 
-        List<User> users = userDao.findAllUsers();
+        List<User> users = userDao.findAll();
         for(User user : users) {
             System.out.println(user);
         }

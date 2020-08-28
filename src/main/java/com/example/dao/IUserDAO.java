@@ -7,5 +7,17 @@ import java.util.List;
 
 public interface IUserDAO {
 //    @Select("select * from user")
-    List<User> findAllUsers();
+    List<User> findAll();
+
+    User findById(Integer id);
+
+    int add(User user);
+
+    int update(User user);
+
+    int delete(Integer id);
+
+    List<User> findByName(String username);
+
+    int findTotal();
 }

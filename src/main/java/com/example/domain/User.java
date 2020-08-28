@@ -1,12 +1,13 @@
 package com.example.domain;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class User {
     private Integer id;
     private String username;
-    private Date birthday;
+    private LocalDateTime birthday;
     private String sex;
     private String address;
 
@@ -26,11 +27,11 @@ public class User {
         this.username = username;
     }
 
-    public Date getBirthday() {
+    public LocalDateTime getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(LocalDateTime birthday) {
         this.birthday = birthday;
     }
 
@@ -52,8 +53,6 @@ public class User {
 
     @Override
     public String toString() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String birthday = dateFormat.format(this.birthday);
         String res = "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +

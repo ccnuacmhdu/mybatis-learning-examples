@@ -3,7 +3,7 @@
 ## 特别说明
 这是本人的 Mybatis 学习笔记，学习地址是 https://www.bilibili.com/video/av69586111
 
-# Day1
+# Day1 入门示例
 ## 搭建环境（建立 Github 项目）
 IDEA 建立 Maven 项目（IDEA 2020.1.2 + MySQL 5.5.15 + Java 1.8 + Maven 3.6.3）
 ```$xslt
@@ -44,6 +44,25 @@ git remote add origin git@github.com:ccnuacmhdu/mybatis-learning-examples.git
 git pull --rebase origin master
 git push --set-upstream origin master 
 ```
-入门示例
+## 入门示例
 - 配置文件方式见源码（User+IUserDAO+IUserDAO.xml+SqlMapConfig.xml）
 - 注解方式，去除 IUserDAO.xml，其他修改处见配置文件对应注释代码
+
+# Day2 CRUD
+## 实体属性名和数据库列名不一致情况
+```$xslt
+public class User {
+    private Integer userId;
+    private String userName;
+    private Date userBirthday;
+    private String userSex;
+    private String userAddress;
+    ……  // 省略 setter/getter
+```
+此种情况处理方式是，为从数据库中查询到的列起别名
+```$xslt
+<select id="findAll" resultType="com.example.domain.User">
+    select id as userId,username as userName,birthday as userBirthday,
+        sex as userSex,address as userAddress from user
+</select>
+```
