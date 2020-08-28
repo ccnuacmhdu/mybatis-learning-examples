@@ -1,5 +1,6 @@
 package com.example.dao;
 
+import com.example.domain.QueryVO;
 import com.example.domain.User;
 import org.apache.ibatis.annotations.Select;
 
@@ -20,4 +21,8 @@ public interface IUserDAO {
     List<User> findByName(String username);
 
     int findTotal();
+
+    List<User> findByUser(User user);
+
+    List<User> findInIds(QueryVO queryVO);
 }

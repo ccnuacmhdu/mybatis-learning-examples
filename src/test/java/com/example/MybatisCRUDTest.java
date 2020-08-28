@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.dao.IUserDAO;
+import com.example.domain.QueryVO;
 import com.example.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -13,6 +14,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -73,6 +75,28 @@ public class MybatisCRUDTest {
         System.out.println(res);
     }
 
+    @Test
+    public void testFindByUser() {
+        User user = new User();
+        user.setUsername("%Rose%");
+        user.setAddress("%hai%");
+        List<User> users = userDAO.findByUser(user);
+        for(User u: users) {
+            System.out.println(u);
+        }
+    }
+
+    @Test
+    public void testFindInIds() {
+        QueryVO queryVO = new QueryVO();
+        List<Integer> ids = Arrays.asList(1, 2, 3, 4, 5);
+        queryVO.setIds(ids);
+        List<User> users = userDAO.findInIds(queryVO);
+        for(User user: users) {
+            System.out.println(user);
+        }
+    }
+
     @Before
     public void init() throws Exception {
         in = Resources.getResourceAsStream("SqlMapConfig.xml");
@@ -83,7 +107,7 @@ public class MybatisCRUDTest {
     }
     @After
     public void destroy() throws Exception{
-        session.commit();
+        session.commit();   // 事务
         session.close();
         in.close();
     }

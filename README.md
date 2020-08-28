@@ -48,7 +48,7 @@ git push --set-upstream origin master
 - 配置文件方式见源码（User+IUserDAO+IUserDAO.xml+SqlMapConfig.xml）
 - 注解方式，去除 IUserDAO.xml，其他修改处见配置文件对应注释代码
 
-# Day2 CRUD
+# Day2 单表 CRUD
 ## 实体属性名和数据库列名不一致情况
 ```$xslt
 public class User {
@@ -80,3 +80,4 @@ public class User {
     select * from user
 </select>
 ```
+# Day3 动态 SQL + 多表查询
