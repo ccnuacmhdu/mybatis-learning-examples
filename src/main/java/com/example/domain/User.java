@@ -1,8 +1,7 @@
 package com.example.domain;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.List;
 
 public class User {
     private Integer id;
@@ -10,6 +9,9 @@ public class User {
     private LocalDateTime birthday;
     private String sex;
     private String address;
+
+    // 一对多：一个 User 对应多个 Account
+    private List<Account> accounts;
 
     public Integer getId() {
         return id;
@@ -51,15 +53,23 @@ public class User {
         this.address = address;
     }
 
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+
     @Override
     public String toString() {
-        String res = "User{" +
+        return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", birthday=" + birthday +
                 ", sex='" + sex + '\'' +
                 ", address='" + address + '\'' +
+                ", accounts=" + accounts +
                 '}';
-        return res;
     }
 }

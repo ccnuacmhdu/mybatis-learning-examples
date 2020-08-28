@@ -1,7 +1,7 @@
 package com.example;
 
-import com.example.dao.IAccountDAO;
-import com.example.domain.Account;
+import com.example.dao.IUserDAO;
+import com.example.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -13,18 +13,18 @@ import org.junit.Test;
 import java.io.InputStream;
 import java.util.List;
 
-public class AccountTest {
+public class UserTest {
 
     private InputStream in ;
     private SqlSessionFactory factory;
     private SqlSession session;
-    private IAccountDAO accountDAO;
+    private IUserDAO userDAO;
 
     @Test
     public void testFindAll() {
-        List<Account> accounts = accountDAO.findAll();
-        for(Account account: accounts) {
-            System.out.println(account);
+        List<User> users = userDAO.findAll();
+        for(User user: users) {
+            System.out.println(user);
         }
     }
 
@@ -34,7 +34,7 @@ public class AccountTest {
         SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
         factory = builder.build(in);
         session = factory.openSession();
-        accountDAO = session.getMapper(IAccountDAO.class);
+        userDAO = session.getMapper(IUserDAO.class);
     }
     @After
     public void destroy() throws Exception{

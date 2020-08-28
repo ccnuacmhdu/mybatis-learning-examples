@@ -17,8 +17,6 @@
 
     <mappers>
         <mapper resource="com.example.dao\IUserDAO.xml"/>
-        <!-- 此种方法要求 mapper 接口名称和 mapper 映射文件名称相同且在同一目录下（注解方式须采用下面方式） -->
-<!--        <mapper class="com.example.dao.IUserDAO"/>-->
 
         <mapper resource="com.example.dao\IAccountDAO.xml"/>
     </mappers>
