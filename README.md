@@ -81,5 +81,5 @@ public class User {
 </select>
 ```
 # Day3 多表查询
-一对一：Account 对 User
-一对多：User 对 Account
+- 一对一：Account 对 User
+- 一对多：User 对 Account
