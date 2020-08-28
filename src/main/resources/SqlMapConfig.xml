@@ -17,7 +17,6 @@
 
     <mappers>
         <mapper resource="com.example.dao\IUserDAO.xml"/>
-
         <mapper resource="com.example.dao\IAccountDAO.xml"/>
     </mappers>
 </configuration>
