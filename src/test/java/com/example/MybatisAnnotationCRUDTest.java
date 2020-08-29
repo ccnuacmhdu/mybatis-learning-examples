@@ -1,7 +1,6 @@
 package com.example;
 
 import com.example.dao.IUserDAO;
-import com.example.domain.QueryVO;
 import com.example.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -11,22 +10,27 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 /**
- * Mybatis CRUD 示例
+ * Mybatis 注解开发 CRUD 示例
  */
-public class MybatisCRUDTest {
+public class MybatisAnnotationCRUDTest {
 
     private InputStream in ;
     private SqlSessionFactory factory;
     private SqlSession session;
     private IUserDAO userDAO;
+
+    @Test
+    public void testFindAll() {
+        List<User> users = userDAO.findAll();
+        for(User user: users) {
+            System.out.println(user);
+        }
+    }
 
     @Test
     public void testFindById() {
@@ -50,14 +54,14 @@ public class MybatisCRUDTest {
     @Test
     public void testUpdate() {
         User user = userDAO.findById(1);
-        user.setAddress("北京海淀区");
+        user.setAddress("北京市海淀区");
         int res = userDAO.update(user); // 1
         System.out.println(res + " " + user);
     }
 
     @Test
     public void testDelete() {
-        int res = userDAO.delete(3);
+        int res = userDAO.delete(9);
         System.out.println(res);
     }
 
@@ -73,28 +77,6 @@ public class MybatisCRUDTest {
     public void testFindTotal() {
         int res = userDAO.findTotal();
         System.out.println(res);
-    }
-
-    @Test
-    public void testFindByUser() {
-        User user = new User();
-        user.setUsername("%Rose%");
-        user.setAddress("%hai%");
-        List<User> users = userDAO.findByUser(user);
-        for(User u: users) {
-            System.out.println(u);
-        }
-    }
-
-    @Test
-    public void testFindInIds() {
-        QueryVO queryVO = new QueryVO();
-        List<Integer> ids = Arrays.asList(1, 2, 3, 4, 5);
-        queryVO.setIds(ids);
-        List<User> users = userDAO.findInIds(queryVO);
-        for(User user: users) {
-            System.out.println(user);
-        }
     }
 
     @Before

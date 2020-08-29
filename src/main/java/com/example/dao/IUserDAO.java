@@ -1,28 +1,46 @@
 package com.example.dao;
 
-import com.example.domain.QueryVO;
 import com.example.domain.User;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 public interface IUserDAO {
-//    @Select("select * from user")
+    @Select("select * from user")
+    @Results(id="userMap",
+            value= {
+                    @Result(id=true,column="id",property="id"),
+                    @Result(column="username",property="username"),
+                    @Result(column="sex",property="sex"),
+                    @Result(column="address",property="address"),
+                    @Result(column="birthday",property="birthday")
+            })
     List<User> findAll();
 
+    @Select("select * from user where id = #{id}")
+    @ResultMap("userMap")
     User findById(Integer id);
 
+    @Insert("insert into user(username,sex,address,birthday) " +
+            "values(#{username},#{sex},#{address},#{birthday})")
+    @SelectKey(before = false,keyColumn = "id",keyProperty = "id",resultType = Integer.class,
+                statement = "select last_insert_id()")
     int add(User user);
 
+    @Update("update user set username=#{username},sex=#{sex},address=#{address},birthday=#{birthday} where id=#{id}")
+    @SelectKey(before = false,keyColumn = "id",keyProperty = "id",resultType = Integer.class,
+            statement = "select last_insert_id()")
     int update(User user);
 
+    @Delete("delete from user where id = #{id}")
     int delete(Integer id);
 
-    List<User> findByName(String username);
-
+    @Select("select count(*) from user")
     int findTotal();
 
-    List<User> findByUser(User user);
+    @Select("select * from user where username like #{username} ")
+    List<User> findByName(String name);
 
-    List<User> findInIds(QueryVO queryVO);
+
+
 }

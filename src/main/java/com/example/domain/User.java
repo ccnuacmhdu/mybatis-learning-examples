@@ -1,8 +1,6 @@
 package com.example.domain;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class User {
     private Integer id;
@@ -53,13 +51,12 @@ public class User {
 
     @Override
     public String toString() {
-        String res = "User{" +
+        return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", birthday=" + birthday +
                 ", sex='" + sex + '\'' +
                 ", address='" + address + '\'' +
                 '}';
-        return res;
     }
 }

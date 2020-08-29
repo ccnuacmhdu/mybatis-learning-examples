@@ -3,21 +3,29 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <properties resource="db.properties"></properties>
+    <!-- 对该包下的所有类都定义别名，别名就是把该类的首字母改为小写 -->
+    <typeAliases>
+        <package name="com.example.domain"/>
+        <!-- 也可这么一个一个配置别名 -->
+<!--        <typeAlias type="com.example.domain.User" alias="user" />-->
+    </typeAliases>
     <environments default="mysql">
         <environment id="mysql">
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?useUnicode=true&amp;characterEncoding=utf8"/>
-                <property name="username" value="root"/>
-                <property name="password" value="123456"/>
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
             </dataSource>
         </environment>
     </environments>
 
     <mappers>
-        <mapper resource="com.example.dao\IUserDAO.xml"/>
-        <!-- 此种方法要求 mapper 接口名称和 mapper 映射文件名称相同且在同一目录下（注解方式须采用下面方式） -->
-<!--        <mapper class="com.example.dao.IUserDAO"/>-->
+        <!-- （配置方式一）指定 DAO 接口所在的包 -->
+        <package name="com.example.dao"/>
+        <!-- （配置方式二）直接指定 DAO 接口 -->
+<!--        <mapper class="com.example.dao.IUserDAO" />-->
     </mappers>
 </configuration>
