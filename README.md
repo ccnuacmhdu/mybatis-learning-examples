@@ -92,7 +92,9 @@ public class User {
 但是当用户用到右边表关联的数据比较大时，用户需要等待较长的查询时间，用户体验就不好了。
 ## 缓存
 把经常使用的数据缓存到内存，再次使用到该数据时，只需要查内存，不用查数据库，减少与数据库交互，提高查询速度。<br />
-- 一级缓存：存储到 SqlSession 中，当调用 SqlSession 的修改，添加，删除，commit()，close()等，一级缓存被清空。
-- 二级缓存：多个 SqlSession 共享的缓存。
+- 一级缓存：一级缓存是 SqlSession 级别的缓存，当调用 SqlSession 的修改，添加，删除，commit()，close()等，<br />
+          一级缓存被清空。
+- 二级缓存：二级缓存是 mapper 映射级别的缓存，多个 SqlSession 去操作同一个 Mapper 映射的 sql 语句，多个 <br />
+          SqlSession 可以共用二级缓存，二级缓存是跨 SqlSession 的。
 # Next
 实践完以上内容即入门了，接下来可阅读[官方文档](https://mybatis.org/mybatis-3/zh/index.html)建立完备的 mybatis 知识体系。
