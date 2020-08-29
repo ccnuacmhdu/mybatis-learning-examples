@@ -1,8 +1,8 @@
 # mybatis-learning-examples
 
-## 特别说明
-这是本人的 Mybatis 学习笔记，学习地址是 https://www.bilibili.com/video/av69586111
-
+## 参考资料
+[1] https://www.bilibili.com/video/av69586111 <br />
+[2] [mybatis 官方文档](https://mybatis.org/mybatis-3/zh/index.html)
 # Day1 入门示例
 ## 搭建环境（建立 Github 项目）
 IDEA 建立 Maven 项目（IDEA 2020.1.2 + MySQL 5.5.15 + Java 1.8 + Maven 3.6.3）
@@ -83,3 +83,5 @@ public class User {
 ```
 # Day3 多表查询
 见 multi-table 分支
+# Day4 注解开发
+见 annotation 分支
