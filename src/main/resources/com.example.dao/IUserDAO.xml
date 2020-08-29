@@ -9,7 +9,7 @@
         <result column="birthday" property="birthday" />
         <result column="sex" property="sex" />
         <result column="address" property="address" />
-        <collection column="accounts" property="accounts" ofType="com.example.domain.Account">
+        <collection property="accounts" ofType="com.example.domain.Account">
             <result column="aid" property="id" />
             <result column="uid" property="uid" />
             <result column="money" property="money" />
