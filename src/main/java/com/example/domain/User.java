@@ -1,6 +1,7 @@
 package com.example.domain;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class User {
     private Integer id;
@@ -8,6 +9,8 @@ public class User {
     private LocalDateTime birthday;
     private String sex;
     private String address;
+
+    private List<Account> accounts;
 
     public Integer getId() {
         return id;
@@ -49,6 +52,14 @@ public class User {
         this.address = address;
     }
 
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -57,6 +68,7 @@ public class User {
                 ", birthday=" + birthday +
                 ", sex='" + sex + '\'' +
                 ", address='" + address + '\'' +
+                ", accounts=" + accounts +
                 '}';
     }
 }

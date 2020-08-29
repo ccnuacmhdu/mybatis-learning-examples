@@ -2,10 +2,7 @@ package com.example.dao;
 
 import com.example.domain.Account;
 import com.example.domain.User;
-import org.apache.ibatis.annotations.One;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -20,4 +17,8 @@ public interface IAccountDAO {
             )
     })
     List<Account> findAll();
+
+    @Select("select * from account where uid = #{uid}")
+    @ResultMap("accountMap")
+    List<Account> findByUid(Integer uid);
 }

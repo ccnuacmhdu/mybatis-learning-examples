@@ -1,5 +1,6 @@
 package com.example.dao;
 
+import com.example.domain.Account;
 import com.example.domain.User;
 import org.apache.ibatis.annotations.*;
 
@@ -41,6 +42,16 @@ public interface IUserDAO {
     @Select("select * from user where username like #{username} ")
     List<User> findByName(String name);
 
-
-
+    // 一个 User 对多个 Account
+    @Select("select * from user")
+    @Results(id = "complexUserMap", value = {
+            @Result(id=true,column="id",property="id"),
+            @Result(column="username",property="username"),
+            @Result(column="sex",property="sex"),
+            @Result(column="address",property="address"),
+            @Result(column="birthday",property="birthday"),
+            @Result(column = "id", property = "accounts", /*javaType = List.class,*/
+                    many = @Many(select = "com.example.dao.IAccountDAO.findByUid"))
+    })
+    List<User> findAllUsers();
 }
