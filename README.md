@@ -1,8 +1,8 @@
 # mybatis-learning-examples
 
-## 特别说明
-这是本人的 Mybatis 学习笔记，学习地址是 https://www.bilibili.com/video/av69586111
-
+# 参考资料
+ [1] https://www.bilibili.com/video/av69586111 <br />
+ [2] [mybatis 官方文档](https://mybatis.org/mybatis-3/zh/index.html)
 # Day3 多表查询
 - 一对一：【一个 Account 对应唯一一个 User】IAccountDAO.findAll<br />
   Account.java+IAccountDAO.xml+IAccountDAO.java+AccountTest.java
